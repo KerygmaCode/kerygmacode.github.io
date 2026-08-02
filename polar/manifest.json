@@ -1,0 +1,12 @@
+{
+    "name": "Polar Chess",
+    "short_name": "Polar Chess",
+    "start_url": ".",
+    "display": "standalone",
+    "background_color": "#26241F",
+    "theme_color": "#C65B3C",
+    "description": "Polar Chess — a round, 97-square chess variant.",
+    "orientation": "any",
+    "prefer_related_applications": false,
+    "icons": []
+}
