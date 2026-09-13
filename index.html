@@ -654,6 +654,7 @@
   <ul class="nav-links">
     <li><a onclick="showPage('home')" id="nav-home" class="active">Home</a></li>
     <li><a onclick="showPage('about')" id="nav-about">About</a></li>
+    <li><a href="/hosting/" id="nav-hosting">Hosting</a></li>
     <li><a onclick="showPage('contact')" id="nav-contact">Contact</a></li>
   </ul>
 </nav>
@@ -831,7 +832,13 @@
     document.getElementById('page-' + id).classList.add('active');
     document.getElementById('nav-' + id).classList.add('active');
     window.scrollTo(0, 0);
+    history.replaceState(null, '', id === 'home' ? '/' : '#' + id);
   }
+
+  window.addEventListener('DOMContentLoaded', () => {
+    const hash = window.location.hash.replace('#', '');
+    if (hash === 'about' || hash === 'contact') showPage(hash);
+  });
 
   function submitForm() {
     const fname   = document.getElementById('fname').value.trim();
