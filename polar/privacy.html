@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Polar Privacy Policy</title>
+<style>
+  :root {
+    --bg: #faf9f6;
+    --surface: #ffffff;
+    --text: #1e2530;
+    --text-dim: #5b6472;
+    --border: #e4e1da;
+    --accent: #3a5fa8;
+    --accent-dim: #6d87b8;
+    --serif: "Source Serif 4", Georgia, "Times New Roman", serif;
+    --sans: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #14181f;
+      --surface: #1b212b;
+      --text: #e7e5df;
+      --text-dim: #9aa3b2;
+      --border: #2c333f;
+      --accent: #7fa0dd;
+      --accent-dim: #5b7bb5;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #14181f;
+    --surface: #1b212b;
+    --text: #e7e5df;
+    --text-dim: #9aa3b2;
+    --border: #2c333f;
+    --accent: #7fa0dd;
+    --accent-dim: #5b7bb5;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body { margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--serif);
+    line-height: 1.65;
+    padding-inline: 20px;
+    padding-block: 48px 80px;
+  }
+
+  .page {
+    max-width: 680px;
+    margin: 0 auto;
+  }
+
+  header.doc-head {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 8px;
+  }
+
+  .mark {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    border: 2px solid var(--accent);
+    position: relative;
+    flex-shrink: 0;
+  }
+  .mark::after {
+    content: "";
+    position: absolute;
+    inset: 8px;
+    border-radius: 50%;
+    border: 2px solid var(--accent-dim);
+  }
+
+  .wordmark {
+    font-family: var(--sans);
+    font-weight: 700;
+    font-size: 15px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+  }
+
+  h1 {
+    font-family: var(--sans);
+    font-weight: 700;
+    font-size: clamp(28px, 6vw, 38px);
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+    margin: 18px 0 6px;
+  }
+
+  .meta {
+    font-family: var(--sans);
+    font-size: 13px;
+    color: var(--text-dim);
+    margin-bottom: 36px;
+  }
+
+  .lede {
+    font-size: 18px;
+    color: var(--text-dim);
+    margin-bottom: 36px;
+  }
+
+  nav.toc {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 18px 22px;
+    margin-bottom: 44px;
+  }
+  nav.toc p {
+    font-family: var(--sans);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin: 0 0 10px;
+  }
+  nav.toc ol {
+    margin: 0;
+    padding-left: 20px;
+    font-family: var(--sans);
+    font-size: 14px;
+    columns: 2;
+    column-gap: 20px;
+  }
+  nav.toc li { margin-bottom: 6px; break-inside: avoid; }
+  nav.toc a { color: var(--text); text-decoration: none; }
+  nav.toc a:hover { color: var(--accent); text-decoration: underline; }
+
+  section { margin-bottom: 38px; scroll-margin-top: 20px; }
+
+  h2 {
+    font-family: var(--sans);
+    font-weight: 700;
+    font-size: 21px;
+    letter-spacing: -0.005em;
+    margin: 0 0 12px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+  }
+
+  h3 {
+    font-family: var(--sans);
+    font-weight: 700;
+    font-size: 15px;
+    color: var(--accent);
+    margin: 20px 0 6px;
+  }
+
+  p { margin: 0 0 14px; }
+  ul { margin: 0 0 14px; padding-left: 22px; }
+  li { margin-bottom: 6px; }
+
+  a { color: var(--accent); }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 0 0 14px;
+  }
+  .card p:last-child { margin-bottom: 0; }
+  .card .label {
+    font-family: var(--sans);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-bottom: 6px;
+  }
+
+  .services {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 12px;
+    margin: 0 0 14px;
+  }
+  .service {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 16px;
+  }
+  .service .name {
+    font-family: var(--sans);
+    font-weight: 700;
+    font-size: 14px;
+    margin-bottom: 4px;
+  }
+  .service .desc {
+    font-size: 14px;
+    color: var(--text-dim);
+    margin: 0;
+  }
+
+  footer.doc-foot {
+    margin-top: 56px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+    font-family: var(--sans);
+    font-size: 13px;
+    color: var(--text-dim);
+  }
+
+  @media (max-width: 480px) {
+    nav.toc ol { columns: 1; }
+  }
+</style>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Archivo:wght@500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="page">
+  <header class="doc-head">
+    <div class="mark" aria-hidden="true"></div>
+    <div class="wordmark">Kerygma Code</div>
+  </header>
+
+  <h1>Privacy Policy for Polar</h1>
+  <p class="meta">Last updated September 17, 2026 &middot; Applies to the Polar mobile app (Android &amp; iOS)</p>
+
+  <p class="lede">Polar is a circular chess game built by Kerygma Code. This page explains, in plain terms, what
+  the app collects, why, and the choices you have &mdash; covering online multiplayer, ads, the optional
+  Remove&nbsp;Ads purchase, and basic gameplay logging.</p>
+
+  <nav class="toc" aria-label="Table of contents">
+    <p>On this page</p>
+    <ol>
+      <li><a href="#collect">Information we collect</a></li>
+      <li><a href="#use">How we use it</a></li>
+      <li><a href="#services">Third-party services</a></li>
+      <li><a href="#sharing">Data sharing</a></li>
+      <li><a href="#children">Children's privacy</a></li>
+      <li><a href="#choices">Your choices</a></li>
+      <li><a href="#retention">Data retention</a></li>
+      <li><a href="#changes">Changes to this policy</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ol>
+  </nav>
+
+  <section id="collect">
+    <h2>Information we collect</h2>
+    <p>Polar is built to need as little about you as possible. Here is everything the app touches, organized by
+    the feature that needs it.</p>
+
+    <h3>Online multiplayer</h3>
+    <p>When you tap "Play online," the app signs your device in anonymously through Firebase Authentication. This
+    assigns a random ID to your device &mdash; it is not tied to your name, email address, or any account, and
+    Polar never asks you to create one.</p>
+    <div class="card">
+      <p class="label">Stored</p>
+      <p>Your anonymous device ID, plus the moves and room codes needed to keep a live match in sync between two
+      devices. This is stored only as long as it's needed to run your game &mdash; not linked to you personally in
+      any way.</p>
+    </div>
+
+    <h3>Advertising</h3>
+    <p>The free version of Polar shows an ad (via Google AdMob) after each finished game. To select and measure
+    these ads, Google's AdMob SDK may collect device and advertising identifiers on its own behalf. Polar does not
+    collect or see this data itself &mdash; it flows directly to Google under Google's own privacy policy, linked
+    below.</p>
+
+    <h3>Purchases</h3>
+    <p>The optional $1.99 "Remove Ads" purchase is handled entirely by Google Play Billing. Polar never receives,
+    sees, or stores your payment details &mdash; card numbers, billing address, and so on stay with Google. The
+    app only keeps a small flag on your own device recording that you've purchased Remove&nbsp;Ads, so it knows
+    not to show ads anymore.</p>
+
+    <h3>Gameplay logging</h3>
+    <p>To help with balancing and testing, Polar sends a small, anonymous record of each finished game &mdash;
+    things like how it ended, how many moves it took, how long it lasted, and whether you played an AI or another
+    person. This never includes your name, moves you made, or any way to identify you personally.</p>
+  </section>
+
+  <section id="use">
+    <h2>How we use it</h2>
+    <ul>
+      <li><strong>To run online multiplayer</strong> &mdash; relaying moves between the two devices in a match.</li>
+      <li><strong>To show and measure ads</strong> &mdash; via Google AdMob, for players on the free tier.</li>
+      <li><strong>To remember your purchase</strong> &mdash; so Remove Ads stays off once you've bought it.</li>
+      <li><strong>To improve the game</strong> &mdash; aggregate stats on how games actually play out (length,
+      outcomes, difficulty balance) shape future updates.</li>
+    </ul>
+    <p>We do not use anything Polar collects for advertising profiles of our own, and we do not sell any
+    information to anyone.</p>
+  </section>
+
+  <section id="services">
+    <h2>Third-party services</h2>
+    <p>Polar is built on a small number of well-known services, all operated by Google:</p>
+    <div class="services">
+      <div class="service">
+        <p class="name">Firebase (Authentication &amp; Firestore)</p>
+        <p class="desc">Anonymous sign-in and match syncing for online multiplayer.</p>
+      </div>
+      <div class="service">
+        <p class="name">Google AdMob</p>
+        <p class="desc">Serves the interstitial ad shown between games on the free tier.</p>
+      </div>
+      <div class="service">
+        <p class="name">Google Play Billing</p>
+        <p class="desc">Processes the one-time Remove Ads purchase.</p>
+      </div>
+      <div class="service">
+        <p class="name">Google Apps Script</p>
+        <p class="desc">Receives the anonymous, per-game log described above.</p>
+      </div>
+    </div>
+    <p>Each is covered by <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's
+    Privacy Policy</a>, and AdMob specifically by <a href="https://policies.google.com/technologies/ads"
+    target="_blank" rel="noopener">Google's ads policy</a>.</p>
+  </section>
+
+  <section id="sharing">
+    <h2>Data sharing</h2>
+    <p>We don't sell your data, and we don't share it with anyone beyond the service providers above, each of
+    which processes it only to provide the specific feature it powers (multiplayer sync, ads, or purchases).</p>
+  </section>
+
+  <section id="children">
+    <h2>Children's privacy</h2>
+    <p>Polar does not knowingly collect personal information from children. If you believe a child has provided
+    us with personal information, contact us using the details below and we'll remove it.</p>
+  </section>
+
+  <section id="choices">
+    <h2>Your choices</h2>
+    <ul>
+      <li><strong>Ad personalization</strong> &mdash; you can opt out of personalized ads and reset your
+      advertising identifier from your device's own Settings app (under Google &rarr; Ads on Android, or
+      Privacy &amp; Security &rarr; Tracking on iOS).</li>
+      <li><strong>Uninstalling</strong> &mdash; removes the local purchase flag from your device. Any online
+      match you were part of is unaffected on the other player's device until it naturally finishes.</li>
+      <li><strong>Questions or deletion requests</strong> &mdash; reach out any time using the contact details
+      below.</li>
+    </ul>
+  </section>
+
+  <section id="retention">
+    <h2>Data retention</h2>
+    <p>Match data and anonymous IDs are kept only as long as needed to run the features above. Because none of it
+    is tied to your name or any account, there's no personal profile of you for us to retain in the first
+    place.</p>
+  </section>
+
+  <section id="changes">
+    <h2>Changes to this policy</h2>
+    <p>If this policy changes, we'll update the date at the top of this page. Continuing to use Polar after a
+    change means you accept the updated policy.</p>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>Questions about this policy or how Polar handles data can go to
+    <a href="mailto:greg@kerygmacode.com">greg@kerygmacode.com</a>.</p>
+  </section>
+
+  <footer class="doc-foot">
+    Polar is made by Kerygma Code.
+  </footer>
+</div>
+</body>
+</html>
