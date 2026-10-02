@@ -161,6 +161,10 @@
 
   <script id="password-gate-script">
     (function () {
+      // Off for now (testing phase - Greg wants max visibility while the
+      // native apps aren't live yet). Flip back to true once the App
+      // Store/Play Store listings go live and this should go private again.
+      var GATE_ENABLED = false;
       var STORAGE_KEY = "polar_gate_unlocked_v1";
       var HASH = "e484af475beb9d163205e551b66e237ebd33b1b4bcd47ecc92d51456fa33e6e7";
 
@@ -182,6 +186,11 @@
         s.src = "flutter_bootstrap.js";
         s.async = true;
         document.body.appendChild(s);
+      }
+
+      if (!GATE_ENABLED) {
+        unlock();
+        return;
       }
 
       try {
