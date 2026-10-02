@@ -78,6 +78,59 @@
       right: 0;
     }
   </style>
+  <style id="password-gate-style">
+    #password-gate {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: #1A1915;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+    #gate-form {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      width: 260px;
+      padding: 0 16px;
+    }
+    #gate-title {
+      color: #EDEDE8;
+      text-align: center;
+      font-size: 15px;
+      margin-bottom: 4px;
+    }
+    #gate-password {
+      padding: 10px 12px;
+      border-radius: 6px;
+      border: 1px solid #45443c;
+      background: #28271f;
+      color: #EDEDE8;
+      font-size: 15px;
+      outline: none;
+    }
+    #gate-password:focus {
+      border-color: #4FC3E0;
+    }
+    #gate-form button {
+      padding: 10px 12px;
+      border-radius: 6px;
+      border: none;
+      background: #4FC3E0;
+      color: #1A1915;
+      font-weight: 600;
+      font-size: 15px;
+      cursor: pointer;
+    }
+    #gate-error {
+      color: #e08a8a;
+      font-size: 13px;
+      text-align: center;
+      min-height: 16px;
+    }
+  </style>
   <script id="splash-screen-script">
     function removeSplashFromWeb() {
       document.getElementById("splash")?.remove();
@@ -87,6 +140,14 @@
   </script>
 </head>
 <body>
+  <div id="password-gate">
+    <form id="gate-form">
+      <div id="gate-title">This page is private.</div>
+      <input id="gate-password" type="password" autocomplete="current-password" placeholder="Password" autofocus>
+      <button type="submit">Enter</button>
+      <div id="gate-error"></div>
+    </form>
+  </div>
   <picture id="splash">
       <source srcset="splash/img/light-1x.png 1x, splash/img/light-2x.png 2x, splash/img/light-3x.png 3x, splash/img/light-4x.png 4x" media="(prefers-color-scheme: light)">
       <source srcset="splash/img/dark-1x.png 1x, splash/img/dark-2x.png 2x, splash/img/dark-3x.png 3x, splash/img/dark-4x.png 4x" media="(prefers-color-scheme: dark)">
@@ -95,7 +156,58 @@
   
   
   
-  <script src="flutter_bootstrap.js" async=""></script>
 
 
+
+  <script id="password-gate-script">
+    (function () {
+      var STORAGE_KEY = "polar_gate_unlocked_v1";
+      var HASH = "e484af475beb9d163205e551b66e237ebd33b1b4bcd47ecc92d51456fa33e6e7";
+
+      function sha256Hex(str) {
+        var enc = new TextEncoder().encode(str);
+        return crypto.subtle.digest("SHA-256", enc).then(function (buf) {
+          return Array.prototype.map
+            .call(new Uint8Array(buf), function (b) {
+              return b.toString(16).padStart(2, "0");
+            })
+            .join("");
+        });
+      }
+
+      function unlock() {
+        var gate = document.getElementById("password-gate");
+        if (gate) gate.remove();
+        var s = document.createElement("script");
+        s.src = "flutter_bootstrap.js";
+        s.async = true;
+        document.body.appendChild(s);
+      }
+
+      try {
+        if (localStorage.getItem(STORAGE_KEY) === "1") {
+          unlock();
+          return;
+        }
+      } catch (e) {}
+
+      document.getElementById("gate-form").addEventListener("submit", function (e) {
+        e.preventDefault();
+        var input = document.getElementById("gate-password");
+        var val = input.value;
+        sha256Hex(val).then(function (hash) {
+          if (hash === HASH) {
+            try {
+              localStorage.setItem(STORAGE_KEY, "1");
+            } catch (e) {}
+            unlock();
+          } else {
+            document.getElementById("gate-error").textContent = "Incorrect password.";
+            input.value = "";
+            input.focus();
+          }
+        });
+      });
+    })();
+  </script>
 </body></html>
