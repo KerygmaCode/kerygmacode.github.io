@@ -1,0 +1,34 @@
+{
+  "schema": 3,
+  "package": "flutter_scene",
+  "entries": [
+    {
+      "family": "material",
+      "id": "physical",
+      "file": "opengl_es/material.physical.f396bdb1.index.json",
+      "stamp": "d31d639b2eedc019",
+      "target": "openglEs"
+    },
+    {
+      "family": "material",
+      "id": "physical#shaderbundle",
+      "file": "opengl_es/material.physical.f396bdb1.shaderbundle",
+      "stamp": "d31d639b2eedc019",
+      "target": "openglEs"
+    },
+    {
+      "family": "material",
+      "id": "physical#sidecar",
+      "file": "opengl_es/material.physical.f396bdb1.fmat.json",
+      "stamp": "d31d639b2eedc019",
+      "target": "openglEs"
+    },
+    {
+      "family": "shaderBundle",
+      "id": "base",
+      "file": "opengl_es/shaderbundle.base.c58b4456.shaderbundle",
+      "stamp": "f42e58515edcefbd",
+      "target": "openglEs"
+    }
+  ]
+}

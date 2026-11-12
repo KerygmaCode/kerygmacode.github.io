@@ -1,0 +1,48 @@
+{
+  "schema": 3,
+  "package": "polar_app",
+  "entries": [
+    {
+      "family": "scene",
+      "id": "assets/models/arc",
+      "file": "scene.arc.4847ea6a.fsceneb",
+      "stamp": "71e73fa5f97866ed",
+      "source": "assets/models/arc.glb"
+    },
+    {
+      "family": "scene",
+      "id": "assets/models/clone",
+      "file": "scene.clone.b49e7556.fsceneb",
+      "stamp": "a91162258854f6b7",
+      "source": "assets/models/clone.glb"
+    },
+    {
+      "family": "scene",
+      "id": "assets/models/omni",
+      "file": "scene.omni.fbac5cf4.fsceneb",
+      "stamp": "5bff984004593e2c",
+      "source": "assets/models/omni.glb"
+    },
+    {
+      "family": "scene",
+      "id": "assets/models/prime",
+      "file": "scene.prime.48151a37.fsceneb",
+      "stamp": "13502a851999966a",
+      "source": "assets/models/prime.glb"
+    },
+    {
+      "family": "scene",
+      "id": "assets/models/radial",
+      "file": "scene.radial.4f71327a.fsceneb",
+      "stamp": "8dc524699f5e81d1",
+      "source": "assets/models/radial.glb"
+    },
+    {
+      "family": "scene",
+      "id": "assets/models/vector",
+      "file": "scene.vector.c3bba175.fsceneb",
+      "stamp": "ce52dd174f17092e",
+      "source": "assets/models/vector.glb"
+    }
+  ]
+}
